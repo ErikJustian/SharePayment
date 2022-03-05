@@ -18,7 +18,6 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import AddUserScreen from "../screens/AddUserScreen";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
     return (
@@ -103,7 +102,7 @@ function BottomTabNavigator() {
             />
             <BottomTab.Screen
                 name="TabFour"
-                component={AddUserScreen}
+                component={TabTwoScreen}
                 options={{
                     title: 'Add User',
                     tabBarIcon: ({color}) => <TabBarIcon name="code" color={color}/>,

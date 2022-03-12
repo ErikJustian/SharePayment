@@ -13,10 +13,16 @@ declare global {
   }
 }
 
+// export type RootStackParamList = {
+//   Root: NavigatorScreenParams<RootTabParamList> | undefined;
+//   Modal: undefined;
+//   NotFound: undefined;
+// };
+
 export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Modal: undefined;
-  NotFound: undefined;
+  Subtotal: undefined;
+  Profile: { userId: string };
+  Feed: { sort: 'latest' | 'top' } | undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

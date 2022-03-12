@@ -105,3 +105,6 @@ dist
 
 #Expo folder
 .expo
+
+#IDEA folder
+.idea

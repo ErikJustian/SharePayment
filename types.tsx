@@ -21,6 +21,7 @@ declare global {
 
 export type RootStackParamList = {
   Subtotal: undefined;
+  AddUser: undefined;
   Profile: { userId: string };
   Feed: { sort: 'latest' | 'top' } | undefined;
 };

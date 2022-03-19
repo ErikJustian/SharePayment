@@ -13,6 +13,7 @@ import {RootStackParamList} from "./types";
 import SubtotalScreen from "./screens/SubtotalScreen";
 import {StyleSheet, Text, View} from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import AddUserScreen from "./screens/AddUserScreen";
 
 // export default function App() {
 //   const isLoadingComplete = useCachedResources();
@@ -41,8 +42,9 @@ export default function App() {
         <NativeBaseProvider>
             <View style={{flex: 1}}>
                 <NavigationContainer>
-                    <RootStack.Navigator initialRouteName="Subtotal">
+                    <RootStack.Navigator initialRouteName="AddUser">
                         <RootStack.Screen name="Subtotal" component={SubtotalScreen}/>
+                        <RootStack.Screen name="AddUser" component={AddUserScreen}/>
                     </RootStack.Navigator>
                 </NavigationContainer>
                 <StatusBar style="auto"/>

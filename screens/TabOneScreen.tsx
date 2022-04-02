@@ -5,25 +5,18 @@ import { Text, Box, HStack, VStack, Pressable, Image, Button, Center, Modal, For
 import { RootTabScreenProps } from '../types';
 import React, { useState } from 'react';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import uuid from 'react-native-uuid';
 
+const blankItem = {
+  name: '',
+  price: 0,
+  qty: 0,
+  id: '',
+};
 
-const initialList = [
-  {
-    name: 'Ayam Goreng',
-    price: '10000',
-    id: 1,
-    qty: 2,
-  },
-  {
-    name: 'Ayam Goreng',
-    price: '10000',
-    qty: 1,
-    id: 2,
-  }
-]
+const initialList:Array<any> = []
 
 let handleChange = (type: string, text: string, index: number, formValues: any, setFormValues: any) => {
-  console.log(formValues[index]);
   const newFormvalues = [...formValues];
   var newValue:number|string = type === 'name' ? text : parseInt(text);
   if(type !== 'name') {
@@ -35,14 +28,16 @@ let handleChange = (type: string, text: string, index: number, formValues: any, 
   setFormValues(newFormvalues);
 }
 
-// let removeFormFields = (i:any ) => {
-//   let newFormValues = [...formValues];
-//   newFormValues.splice(i, 1);
-//   setFormValues(newFormValues)
-// }
+let removeFormFields = (i:any, formValues: any, setFormValues: any) => {
+  let newFormValues = [...formValues];
+  newFormValues.splice(i, 1);
+  setFormValues(newFormValues)
+}
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   const [formValues, setFormValues] = useState(initialList);
+  const [total, setTotal] = useState(0);
+  console.log(formValues);
   return (
     <VStack>
       <Box>
@@ -57,7 +52,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                 <Input value={item.name} onChangeText={(text) => handleChange('name', text, index, formValues, setFormValues)}></Input>
                 <HStack space={3} justifyContent="space-between">
                   <Input value={item.qty.toString()} onChangeText={(text) => handleChange('qty', text, index, formValues, setFormValues)}></Input>
-                  <Spacer />
+                  <Spacer /><Text> X </Text>
                   <Input value={item.price.toString()} onChangeText={(text) => handleChange('price', text, index, formValues, setFormValues)}></Input>
 
                   <Spacer />
@@ -69,12 +64,22 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                 Subtotal: {item.qty*item.price}
               </Text>
               </VStack>
+              <Icon as={FontAwesome} onPress={() => {
+                removeFormFields(index, formValues, setFormValues);
+              }} name="close" />
             </HStack>
           </Box>} keyExtractor={item => item.id} />
       </Box>
       <HStack justifyContent="center">
         <Button leftIcon={<Icon as={Ionicons} name="add-circle" />} onPress={() => {
-          console.log('testing');
+          var addedItem:any = {
+            name: '',
+            price: 0,
+            qty: 0,
+            id: uuid.v4(),
+          };
+          var newFormValues:any = [...formValues, addedItem];
+          setFormValues(newFormValues);
           }}> Add Menu</Button>
       </HStack>
     </VStack>

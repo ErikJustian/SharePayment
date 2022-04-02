@@ -13,6 +13,7 @@ import {RootStackParamList} from "./types";
 import SubtotalScreen from "./screens/SubtotalScreen";
 import {StyleSheet, Text, View} from "react-native";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import TabOneScreen from './screens/TabOneScreen';
 
 // export default function App() {
 //   const isLoadingComplete = useCachedResources();
@@ -41,8 +42,8 @@ export default function App() {
         <NativeBaseProvider>
             <View style={{flex: 1}}>
                 <NavigationContainer>
-                    <RootStack.Navigator initialRouteName="Subtotal">
-                        <RootStack.Screen name="Subtotal" component={SubtotalScreen}/>
+                    <RootStack.Navigator initialRouteName="TabOne">
+                        <RootStack.Screen name="TabOne" component={TabOneScreen}/>
                     </RootStack.Navigator>
                 </NavigationContainer>
                 <StatusBar style="auto"/>

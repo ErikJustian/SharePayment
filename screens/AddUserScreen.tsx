@@ -3,7 +3,7 @@ import { StyleSheet, TextInput } from "react-native";
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Box, FlatList, HStack, Icon, IconButton, Input, Text, View } from "native-base";
 import { RootStackParamList } from "../types";
-import { AntDesign, Entypo, FontAwesome5 } from "@expo/vector-icons";
+import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AddUser'>;
 

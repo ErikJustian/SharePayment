@@ -7,6 +7,7 @@ import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AddUser'>;
 
+//test
 interface Friend {
     id: number;
     name: string;

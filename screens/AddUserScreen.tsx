@@ -6,7 +6,7 @@ import { RootStackParamList } from "../types";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 
 type Props = NativeStackScreenProps<RootStackParamList, 'AddUser'>;
-// A
+
 interface Friend {
     id: number;
     name: string;
